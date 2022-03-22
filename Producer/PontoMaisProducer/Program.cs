@@ -16,10 +16,12 @@ try
     await producer.Produce(request);
 
     Console.WriteLine("End of execution");
+    Console.ReadKey();
 }
 catch (Exception ex)
 {
     Console.WriteLine($"Execution with problems, exception: {ex.Message}");
+    Console.ReadKey();
 }
 
 

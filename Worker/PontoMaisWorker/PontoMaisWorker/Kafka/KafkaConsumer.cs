@@ -43,7 +43,6 @@ namespace PontoMaisWorker.Kafka
                         var obj = JsonSerializer.Deserialize<ClockingRequest>(consumer.Message.Value);
                         var header = consumer.Message.Headers.GetLastBytes("correlationId");
                         var correlationId = new Guid(header);  
-                        //var cor = Guid.Parse(str);
                         if (obj is not null)
                         {
                             _clockInService.Input(obj, correlationId);

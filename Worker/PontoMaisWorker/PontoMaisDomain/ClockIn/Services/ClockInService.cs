@@ -1,10 +1,8 @@
-﻿using System.Reflection.PortableExecutable;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using PontoMaisDomain.ClockIn.Dto;
 using PontoMaisDomain.ClockIn.Entities;
 using PontoMaisDomain.ClockIn.Enums;
 using PontoMaisDomain.ClockIn.Repositories;
-using PontoMaisDomain.Employees.Entities;
 using PontoMaisDomain.Employees.Repositories;
 
 namespace PontoMaisDomain.ClockIn.Services
@@ -22,25 +20,6 @@ namespace PontoMaisDomain.ClockIn.Services
             _clockingRepository = clockingRepository;
             _employeeRepository = employeeRepository;
             _logger = logger;
-        }
-
-        public async Task<List<ClockingList>> GetByEmployee(Guid id, int day, int month, int year)
-        {
-            List<ClockingList> list = new List<ClockingList>();
-            var clock = await _clockingRepository.GetByEmployee(id, day, month, year);
-
-            foreach(var item in clock.ClockingEvents){
-
-                var entrype = ((double)item.EntryType) == 1 ? "Entrada" : "Saida";
-
-                list.Add(new ClockingList{
-                    EntryType =  entrype,
-                    Day = item.EventTime.Day,
-                    Hour = item.EventTime.TimeOfDay
-                });
-            }
-
-            return list;
         }
 
         public async Task Input(ClockingRequest request, Guid correlationId)
