@@ -31,7 +31,7 @@ namespace PontoMaisProducer.Kafka
 
             using (var producer = new ProducerBuilder<Null, string>(producerConfig).Build())
             {
-                var result = await producer.ProduceAsync(
+                 await producer.ProduceAsync(
                     topicName,
                     new Message<Null, string>
                     {
