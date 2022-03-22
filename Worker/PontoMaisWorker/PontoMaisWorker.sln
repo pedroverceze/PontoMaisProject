@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Worker", "1 - Worker", "{3F648FAA-6540-4714-916D-F2EAF2303BB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{3A37DF86-19AE-4A7C-8CF1-BE172292A375}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{6682E360-377C-47F0-9932-5D082DE54824}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PontoMaisWorker", "PontoMaisWorker\PontoMaisWorker.csproj", "{DC7448AC-CE63-40C5-AB9F-0380F36BF899}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PontoMaisDomain", "PontoMaisDomain\PontoMaisDomain.csproj", "{33AA6C54-DF28-4381-A863-1F787299B84C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PontoMaisInfra", "PontoMaisInfra\PontoMaisInfra.csproj", "{A2DD2134-DFCE-4565-A3F5-445EEC4A365D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC7448AC-CE63-40C5-AB9F-0380F36BF899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC7448AC-CE63-40C5-AB9F-0380F36BF899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC7448AC-CE63-40C5-AB9F-0380F36BF899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC7448AC-CE63-40C5-AB9F-0380F36BF899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33AA6C54-DF28-4381-A863-1F787299B84C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33AA6C54-DF28-4381-A863-1F787299B84C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33AA6C54-DF28-4381-A863-1F787299B84C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33AA6C54-DF28-4381-A863-1F787299B84C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2DD2134-DFCE-4565-A3F5-445EEC4A365D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2DD2134-DFCE-4565-A3F5-445EEC4A365D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2DD2134-DFCE-4565-A3F5-445EEC4A365D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2DD2134-DFCE-4565-A3F5-445EEC4A365D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DC7448AC-CE63-40C5-AB9F-0380F36BF899} = {3F648FAA-6540-4714-916D-F2EAF2303BB4}
+		{33AA6C54-DF28-4381-A863-1F787299B84C} = {3A37DF86-19AE-4A7C-8CF1-BE172292A375}
+		{A2DD2134-DFCE-4565-A3F5-445EEC4A365D} = {6682E360-377C-47F0-9932-5D082DE54824}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26F999E5-F471-451F-AB38-9F50B88D61CE}
+	EndGlobalSection
+EndGlobal
