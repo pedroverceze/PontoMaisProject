@@ -1,12 +1,7 @@
 ﻿using Confluent.Kafka;
 using PontoMaisDomain.ClockIn.Dto;
 using PontoMaisDomain.ClockIn.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace PontoMaisWorker.Kafka
 {
@@ -14,11 +9,14 @@ namespace PontoMaisWorker.Kafka
     {
         private readonly string ipPort;
         private IClockInService _clockInService;
+        private IConfiguration _configuration;
 
-        public KafkaConsumer(IClockInService clockInService)
+        public KafkaConsumer(IClockInService clockInService, IConfiguration configuration)
         {
-            ipPort = "localhost:9092";
+            _configuration = configuration;
+            
             _clockInService = clockInService;
+            ipPort = _configuration["ipPort"];
         }
 
         public Task Consume(string topicName, CancellationToken cancellationToken)

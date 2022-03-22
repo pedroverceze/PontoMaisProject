@@ -20,6 +20,6 @@ namespace PontoMaisDomain.Employees.Entities
         public int Age { get; set; }
         public string Role { get; set; }
         public Guid CompanyId { get; set; }
-        public Company Company { get; set; }
+        public Company? Company { get; set; }
     }
 }
