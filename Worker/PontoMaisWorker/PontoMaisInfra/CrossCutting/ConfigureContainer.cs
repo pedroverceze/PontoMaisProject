@@ -2,8 +2,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using PontoMaisDomain.ClockIn.Repositories;
 using PontoMaisDomain.ClockIn.Services;
-using PontoMaisDomain.Companies.Repositories;
-using PontoMaisDomain.Companies.Services;
 using PontoMaisDomain.Employees.Repositories;
 using PontoMaisDomain.Employees.Services;
 using PontoMaisDomain.Kafka;
@@ -22,8 +20,6 @@ namespace PontoMaisInfra.CrossCutting
                 options.UseSqlServer(connectionString)
             );
 
-            service.AddScoped<ICompanyService, CompanyService>();
-            service.AddScoped<ICompanyRepository, CompanyRepository>();
             service.AddScoped<IEmployeeService, EmployeeService>();
             service.AddScoped<IEmployeeRepository, EmployeeRepository>();
             service.AddScoped<IClockInService, ClockInService>();

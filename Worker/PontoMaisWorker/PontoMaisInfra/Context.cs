@@ -10,7 +10,6 @@ namespace PontoMaisInfra
         
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfiguration(new CompanyMap());
             builder.ApplyConfiguration(new EmployeeMap());
             builder.ApplyConfiguration(new ClockingEventMap());
             builder.ApplyConfiguration(new ClockingEventMap());
