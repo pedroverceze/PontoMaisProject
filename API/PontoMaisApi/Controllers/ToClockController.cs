@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PontoMaisDomain.ClockIn.Services;
 
 namespace PontoMaisApi.Controllers
@@ -15,6 +16,7 @@ namespace PontoMaisApi.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Employee")]
         [Route("GetByEmployee/{id}/{day}/{month}/{year}")]
         public async Task<ActionResult> GetByEmployee(Guid id, int day, int month, int year)
         {
