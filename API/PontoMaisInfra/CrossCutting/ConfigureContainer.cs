@@ -7,6 +7,7 @@ using PontoMaisDomain.Companies.Repositories;
 using PontoMaisDomain.Companies.Services;
 using PontoMaisDomain.Employees.Repositories;
 using PontoMaisDomain.Employees.Services;
+using PontoMaisDomain.Token;
 using PontoMaisInfra.EF.Repositories;
 
 namespace PontoMaisInfra.CrossCutting
@@ -27,6 +28,7 @@ namespace PontoMaisInfra.CrossCutting
             service.AddScoped<IEmployeeRepository, EmployeeRepository>();
             service.AddScoped<IClockInService, ClockInService>();
             service.AddScoped<IClockingRepository, ClockingRepository>();
+            service.AddScoped<ITokenService, TokenService>();
         }
     }
 }
