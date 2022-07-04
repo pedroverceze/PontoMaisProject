@@ -4,7 +4,7 @@
 
 namespace PontoMaisInfra.Migrations
 {
-    public partial class correcaoChave : Migration
+    public partial class teste : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
