@@ -12,8 +12,8 @@ using PontoMaisInfra;
 namespace PontoMaisInfra.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220218194256_correcaoChave")]
-    partial class correcaoChave
+    [Migration("20220704150343_createDB")]
+    partial class createDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
