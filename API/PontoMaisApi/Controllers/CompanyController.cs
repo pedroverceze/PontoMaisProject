@@ -28,7 +28,7 @@ namespace PontoMaisApi.Controllers
 
             await _companyService.Add(company);
 
-            return Ok(company);
+            return Created(new Uri($"{Request.Path}/{company.Id}") ,company);
         }
 
         [HttpGet]

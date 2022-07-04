@@ -5,6 +5,7 @@ using PontoMaisDomain.Token;
 namespace PontoMaisApi.Controllers
 {
     [ApiController]
+    [Route("api/[controller]")]
     public class LoginController : ControllerBase
     {
         private ITokenService _tokenService;

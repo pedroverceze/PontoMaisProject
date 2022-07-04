@@ -1,10 +1,8 @@
-﻿using System.Reflection.PortableExecutable;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using PontoMaisDomain.ClockIn.Dto;
 using PontoMaisDomain.ClockIn.Entities;
 using PontoMaisDomain.ClockIn.Enums;
 using PontoMaisDomain.ClockIn.Repositories;
-using PontoMaisDomain.Employees.Entities;
 using PontoMaisDomain.Employees.Repositories;
 
 namespace PontoMaisDomain.ClockIn.Services
@@ -29,6 +27,10 @@ namespace PontoMaisDomain.ClockIn.Services
             List<ClockingList> list = new List<ClockingList>();
             var clock = await _clockingRepository.GetByEmployee(id, day, month, year);
 
+            if(clock is null){
+                return new List<ClockingList>();
+            }
+
             foreach(var item in clock.ClockingEvents){
 
                 var entrype = ((double)item.EntryType) == 1 ? "Entrada" : "Saida";
@@ -43,16 +45,17 @@ namespace PontoMaisDomain.ClockIn.Services
             return list;
         }
 
-        public async Task Input(ClockingRequest request, Guid correlationId)
+        public async Task Input(Guid employeeId)
         {
-            _logger.LogInformation(correlationId.ToString(), request);
-
             Clocking clocking;
+            var date = DateTime.Now.Date;
 
-            var employee = await _employeeRepository.FindById(request.EmployeeId);
+            _logger.LogInformation(employeeId.ToString());
+
+            var employee = await _employeeRepository.FindById(employeeId);
 
             //TODO: problema aqui
-            clocking = await _clockingRepository.GetByDate(request.Date);
+            clocking = await _clockingRepository.GetByDate(date);
 
             if (clocking is not null)
             {
@@ -63,7 +66,7 @@ namespace PontoMaisDomain.ClockIn.Services
             }
             else
             {
-                clocking = new Clocking(request.EmployeeId, request.Date, employee);
+                clocking = new Clocking(employeeId, DateTime.Now.Date, employee);
             }
 
             var entry = GetEntryType(clocking);
@@ -72,7 +75,7 @@ namespace PontoMaisDomain.ClockIn.Services
                 {
                     Id = Guid.NewGuid(),
                     ClockingId = clocking.Id,
-                    CreatedAt = request.Date,
+                    CreatedAt = date,
                     EventTime = DateTime.Now,
                     EventNu = clocking.ClockingEvents.Count() == 0 ? 1 : clocking.ClockingEvents.Last().EventNu + 1,
                     EntryType = entry,
@@ -87,11 +90,15 @@ namespace PontoMaisDomain.ClockIn.Services
 
         private EntryType GetEntryType(Clocking clocking)
         {
-            if(clocking.ClockingEvents.Count() == 0){
+            var IsThereNoEvents = clocking.ClockingEvents.Count() == 0;
+
+            if(IsThereNoEvents){
                 return EntryType.Entrance;
             }
 
-            if(clocking.ClockingEvents.OrderBy(c => c.EventNu).Last().EntryType.Equals(EntryType.Entrance)){
+            if(clocking.ClockingEvents
+            .OrderBy(c => c.EventNu).Last()
+            .EntryType.Equals(EntryType.Entrance)){
                 return EntryType.Exit;
             }
 

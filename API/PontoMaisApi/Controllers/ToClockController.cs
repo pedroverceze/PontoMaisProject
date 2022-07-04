@@ -25,5 +25,14 @@ namespace PontoMaisApi.Controllers
             return Ok(list);
 
         }
+
+        [HttpPost]
+        [Authorize(Roles = "Employee")]
+        [Route("input/{employeeId}")]
+        public async Task<ActionResult> Input(Guid employeeId){
+            await _clockInService.Input(employeeId);
+
+            return Created(new Uri($"{Request.Path}/{employeeId}"),employeeId);
+        }
     }
 }
