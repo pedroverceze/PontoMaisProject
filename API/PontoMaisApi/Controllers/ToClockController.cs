@@ -23,7 +23,6 @@ namespace PontoMaisApi.Controllers
             var list = _clockInService.GetByEmployee(id, day, month, year);
 
             return Ok(list);
-
         }
 
         [HttpPost]

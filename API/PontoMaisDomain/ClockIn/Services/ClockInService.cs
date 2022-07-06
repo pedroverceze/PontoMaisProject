@@ -42,6 +42,7 @@ namespace PontoMaisDomain.ClockIn.Services
                 list.Add(new ClockingList{
                     EntryType =  entrype,
                     Day = item.EventTime.Day,
+                    Mounth = item.EventTime.Month,
                     Hour = item.EventTime.TimeOfDay
                 });
             }
@@ -58,7 +59,6 @@ namespace PontoMaisDomain.ClockIn.Services
 
             var employee = _employeeRepository.FindById(employeeId);
 
-            //TODO: problema aqui
             clocking = _clockingRepository.GetByDate(date);
 
             if (clocking is not null)
