@@ -1,4 +1,6 @@
-﻿using PontoMaisDomain.Companies.Entities;
+﻿using System;
+using System.Threading.Tasks;
+using PontoMaisDomain.Companies.Entities;
 using PontoMaisDomain.Companies.Repositories;
 
 namespace PontoMaisDomain.Companies.Services
@@ -17,9 +19,9 @@ namespace PontoMaisDomain.Companies.Services
             await _companyRepository.Add(company);
         }
 
-        public async Task<Company> Get(Guid id)
+        public Company Get(Guid id)
         {
-            return await _companyRepository.Get(id);
+            return _companyRepository.Get(id);
         }
     }
 }

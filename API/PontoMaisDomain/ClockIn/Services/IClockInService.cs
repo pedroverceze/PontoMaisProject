@@ -1,5 +1,7 @@
-﻿using PontoMaisDomain.ClockIn.Dto;
-using PontoMaisDomain.ClockIn.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using PontoMaisDomain.ClockIn.Dto;
 
 namespace PontoMaisDomain.ClockIn.Services
 {
@@ -7,6 +9,6 @@ namespace PontoMaisDomain.ClockIn.Services
     {
         Task Input(Guid employeeId);
 
-        Task<List<ClockingList>> GetByEmployee(Guid id, int day, int month, int year);
+        List<ClockingList> GetByEmployee(Guid id, int day, int month, int year);
     }
 }

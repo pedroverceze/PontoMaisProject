@@ -1,4 +1,6 @@
-﻿using PontoMaisDomain.Abstract.Entities;
+﻿using System;
+using System.Collections.Generic;
+using PontoMaisDomain.Abstract.Entities;
 using PontoMaisDomain.Employees.Entities;
 
 namespace PontoMaisDomain.Companies.Entities

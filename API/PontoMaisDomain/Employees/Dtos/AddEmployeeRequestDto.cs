@@ -1,4 +1,6 @@
-﻿namespace PontoMaisDomain.Employees.Dtos
+﻿using System;
+
+namespace PontoMaisDomain.Employees.Dtos
 {
     public class AddEmployeeRequestDto
     {

@@ -1,4 +1,6 @@
-﻿namespace PontoMaisDomain.ClockIn.Dto
+﻿using System;
+
+namespace PontoMaisDomain.ClockIn.Dto
 {
     public class ClockingRequest
     {

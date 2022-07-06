@@ -20,9 +20,9 @@ namespace PontoMaisApi.Controllers
 
         [HttpPost]
         [Route("login/{employeeId}")]
-        public async Task<ActionResult<dynamic>> Authenticate(string employeeId)
+        public ActionResult<dynamic> Authenticate(string employeeId)
         {
-            var employee = await _employeeService.Get(Guid.Parse(employeeId));
+            var employee = _employeeService.Get(Guid.Parse(employeeId));
 
             if (employee == null)
             {

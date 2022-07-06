@@ -1,10 +1,12 @@
-﻿using PontoMaisDomain.Companies.Entities;
+﻿using System;
+using System.Threading.Tasks;
+using PontoMaisDomain.Companies.Entities;
 
 namespace PontoMaisDomain.Companies.Services
 {
     public interface ICompanyService
     {
         public Task Add(Company company);
-        public Task<Company> Get(Guid id);
+        public Company Get(Guid id);
     }
 }

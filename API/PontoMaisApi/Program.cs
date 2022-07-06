@@ -4,33 +4,29 @@ using PontoMaisInfra.CrossCutting;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+{
+    builder.Services.AddControllers();
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
 
-// Add services to the container.
-ConfigureContainer.Configure(builder.Services, builder.Configuration) ;
-ConfigureToken(builder.Services, builder.Configuration);
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+    ConfigureContainer.Configure(builder.Services, builder.Configuration);
+    ConfigureToken(builder.Services, builder.Configuration);
+};
 
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
 
-app.UseHttpsRedirection();
-
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
+    app.UseHttpsRedirection();
+    app.UseAuthentication();
+    app.UseAuthorization();
+    app.MapControllers();
+    app.Run();
+};
 
 void ConfigureToken(IServiceCollection service, ConfigurationManager configuration)
 {
@@ -54,6 +50,4 @@ void ConfigureToken(IServiceCollection service, ConfigurationManager configurati
                 ValidateAudience = false
             };
         });
-
 }
-

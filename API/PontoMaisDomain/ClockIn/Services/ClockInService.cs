@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using PontoMaisDomain.ClockIn.Dto;
 using PontoMaisDomain.ClockIn.Entities;
 using PontoMaisDomain.ClockIn.Enums;
@@ -22,10 +26,10 @@ namespace PontoMaisDomain.ClockIn.Services
             _logger = logger;
         }
 
-        public async Task<List<ClockingList>> GetByEmployee(Guid id, int day, int month, int year)
+        public List<ClockingList> GetByEmployee(Guid id, int day, int month, int year)
         {
             List<ClockingList> list = new List<ClockingList>();
-            var clock = await _clockingRepository.GetByEmployee(id, day, month, year);
+            var clock = _clockingRepository.GetByEmployee(id, day, month, year);
 
             if(clock is null){
                 return new List<ClockingList>();
@@ -52,10 +56,10 @@ namespace PontoMaisDomain.ClockIn.Services
 
             _logger.LogInformation(employeeId.ToString());
 
-            var employee = await _employeeRepository.FindById(employeeId);
+            var employee = _employeeRepository.FindById(employeeId);
 
             //TODO: problema aqui
-            clocking = await _clockingRepository.GetByDate(date);
+            clocking = _clockingRepository.GetByDate(date);
 
             if (clocking is not null)
             {

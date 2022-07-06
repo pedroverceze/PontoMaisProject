@@ -1,4 +1,6 @@
-﻿namespace PontoMaisDomain.Abstract.Entities
+﻿using System;
+
+namespace PontoMaisDomain.Abstract.Entities
 {
     public abstract class BaseEntity
     {

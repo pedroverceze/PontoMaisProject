@@ -20,7 +20,7 @@ namespace PontoMaisInfra.EF.Repositories
             return _dbSet.Where(c => c.CompanyId == id).ToList();
         }
 
-        public async Task<Employee> FindById(Guid id)
+        public Employee FindById(Guid id)
         {
             return Filter(id).First();
         }

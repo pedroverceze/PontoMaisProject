@@ -27,7 +27,7 @@ namespace PontoMaisInfra.EF.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Clocking> GetByDate(DateTime date)
+        public Clocking GetByDate(DateTime date)
         {
             return FilterByDate(date).FirstOrDefault();
         }
@@ -44,7 +44,7 @@ namespace PontoMaisInfra.EF.Repositories
             .FirstOrDefault() != null;
         }
 
-        public async Task<Clocking> GetByEmployee(Guid id, int day, int month, int year)
+        public Clocking GetByEmployee (Guid id, int day, int month, int year)
         {
             DateTime date = new DateTime(year,month,day);
 

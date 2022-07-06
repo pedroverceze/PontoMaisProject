@@ -1,4 +1,6 @@
-﻿using PontoMaisDomain.Abstract.Entities;
+﻿using System;
+using System.Collections.Generic;
+using PontoMaisDomain.Abstract.Entities;
 using PontoMaisDomain.ClockIn.Enums;
 using PontoMaisDomain.Employees.Entities;
 

@@ -1,4 +1,6 @@
-﻿namespace PontoMaisDomain.Companies.Dto
+﻿using System;
+
+namespace PontoMaisDomain.Companies.Dto
 {
     public class AddCompanyRequestDto
     {

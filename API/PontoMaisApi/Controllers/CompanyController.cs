@@ -2,6 +2,7 @@
 using PontoMaisDomain.Companies.Dto;
 using PontoMaisDomain.Companies.Entities;
 using PontoMaisDomain.Companies.Services;
+using System;
 
 namespace PontoMaisApi.Controllers
 {
@@ -33,8 +34,8 @@ namespace PontoMaisApi.Controllers
 
         [HttpGet]
         [Route("getCompany/{id}")]
-        public async Task<ActionResult> GetCompany(Guid id){
-            var company = await _companyService.Get(id);
+        public ActionResult GetCompany(Guid id){
+            var company = _companyService.Get(id);
 
             return Ok(company);
         }

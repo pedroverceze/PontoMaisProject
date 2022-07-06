@@ -2,6 +2,7 @@
 using PontoMaisDomain.Employees.Dtos;
 using PontoMaisDomain.Employees.Entities;
 using PontoMaisDomain.Employees.Services;
+using System;
 
 namespace PontoMaisApi.Controllers
 {

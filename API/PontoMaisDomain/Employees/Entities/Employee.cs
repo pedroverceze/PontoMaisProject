@@ -1,11 +1,15 @@
-﻿using PontoMaisDomain.Abstract.Entities;
+﻿using System;
+using PontoMaisDomain.Abstract.Entities;
 using PontoMaisDomain.Companies.Entities;
 
 namespace PontoMaisDomain.Employees.Entities
 {
     public class Employee : BaseEntity
     {
-        public Employee(string name, int age, string role, Guid companyId)
+        public Employee(string name,
+            int age,
+            string role,
+            Guid companyId)
         {
             Id = Guid.NewGuid();
             Name = name;

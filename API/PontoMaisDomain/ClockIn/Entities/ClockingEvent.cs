@@ -1,4 +1,5 @@
-﻿using PontoMaisDomain.Abstract.Entities;
+﻿using System;
+using PontoMaisDomain.Abstract.Entities;
 using PontoMaisDomain.ClockIn.Enums;
 
 namespace PontoMaisDomain.ClockIn.Entities

@@ -1,4 +1,7 @@
-﻿using PontoMaisDomain.Employees.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using PontoMaisDomain.Employees.Entities;
 
 namespace PontoMaisDomain.Employees.Services
 {
@@ -6,7 +9,7 @@ namespace PontoMaisDomain.Employees.Services
     {
         Task Add(Employee employee);
         
-        Task<Employee> Get(Guid id);
+        Employee Get(Guid id);
 
         List<Employee> GetByCompanyId(Guid id);
     }

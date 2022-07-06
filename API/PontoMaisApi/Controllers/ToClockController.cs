@@ -18,9 +18,9 @@ namespace PontoMaisApi.Controllers
         [HttpGet]
         [Authorize(Roles = "Employee")]
         [Route("GetByEmployee/{id}/{day}/{month}/{year}")]
-        public async Task<ActionResult> GetByEmployee(Guid id, int day, int month, int year)
+        public ActionResult GetByEmployee(Guid id, int day, int month, int year)
         {
-            var list = await _clockInService.GetByEmployee(id, day, month, year);
+            var list = _clockInService.GetByEmployee(id, day, month, year);
 
             return Ok(list);
 

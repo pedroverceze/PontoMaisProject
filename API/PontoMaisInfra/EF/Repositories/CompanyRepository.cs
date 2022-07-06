@@ -15,7 +15,7 @@ namespace PontoMaisInfra.EF.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Company> Get(Guid id)
+        public Company Get(Guid id)
         {
             return Filter(id)
                 .First();

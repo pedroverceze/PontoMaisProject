@@ -1,4 +1,8 @@
-﻿using PontoMaisDomain.Employees.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using PontoMaisDomain.Employees.Entities;
 using PontoMaisDomain.Employees.Repositories;
 
 namespace PontoMaisDomain.Employees.Services
@@ -18,7 +22,7 @@ namespace PontoMaisDomain.Employees.Services
             await _employeeRepository.Add(employee);
         }
 
-        public Task<Employee> Get(Guid id)
+        public Employee Get(Guid id)
         {
             return _employeeRepository.FindById(id);
         }
