@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using PontoMaisApi.Middlewares.Log;
 using PontoMaisInfra.CrossCutting;
 using System.Text;
 
@@ -20,6 +21,8 @@ var app = builder.Build();
         app.UseSwagger();
         app.UseSwaggerUI();
     }
+
+    app.UseMiddleware<LogMiddleware>();
 
     app.UseHttpsRedirection();
     app.UseAuthentication();
